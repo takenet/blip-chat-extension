@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BlipChat widget</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="column">
+
+      <div class="row">
+        <h1>Meu site maravilhoso</h1>
+        <p>Use buttons bellow to see different behaviours of BLiP Chat</p>
+        <button class="button" onclick="closeWebview()">Close WebView</button>
+        <button class="button" onclick="sendMessage()">Send Default Message</button>        
+        <button class="button" onclick="preventClose()">Prevent Close</button>
+        <button class="button" onclick="allowClose()">Allow Close</button>
+        <textarea id='textarea' style="width: 100%; height: 300px;"></textarea>
+        <button class="button" onclick="sendJson()">ENVIAR JSON</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var closeWebview;
+    var sendMessage;
+    var sendMessageNoPayload;
+    var sendMessageNoPreview;
+    var preventClose;
+    var allowClose;
+    (function () {
+      window.onload = function () {
+        var WebView = new BlipChatWebView()
+
+        closeWebview = function () {
+          WebView.closeWebView()
+        }
+
+        sendMessage = function () {
+          WebView.sendMessage({
+            payload: {
+              content: 'myteste',
+              type: 'text/plain'
+            },
+            preview: {
+              type: "application/vnd.lime.media-link+json",
+              content: {
+                title: "Cat",
+                text: "Here is a cat image for you!",
+                type: "image/jpeg",
+                uri: "http://2.bp.blogspot.com/-pATX0YgNSFs/VP-82AQKcuI/AAAAAAAALSU/Vet9e7Qsjjw/s1600/Cat-hd-wallpapers.jpg",
+                aspectRatio: "1:1",
+                size: 227791,
+                previewUri: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS8qkelB28RstsNxLi7gbrwCLsBVmobPjb5IrwKJSuqSnGX4IzX",
+                previewType: "image/jpeg"
+              }
+            }
+          })
+        }
+
+        sendJson = function () {
+          let json = document.getElementById('textarea').value
+          WebView.sendMessage(JSON.parse(json))
+        }
+
+        preventClose = function () {
+          WebView.overrideOnClose(() => {
+            alert('N vai fechar')
+            return false
+          })
+        }
+
+        allowClose = function () {
+          WebView.overrideOnClose(() => {
+            return true
+          })
+        }
+      }
+    })();
+
+  </script>
+
+  <style lang="scss">
+    .button {
+      display: block;
+      padding: 3px;
+      margin-top: 10px;
+    }
+    textarea {
+      margin-top: 10px;
+    }
+  </style>
+</body>
+
+</html>
