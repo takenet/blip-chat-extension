@@ -9,7 +9,7 @@ const config = {
   entry: [`${__dirname}/src/BlipChatWebView.js`],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'blip-chat.js',
+    filename: 'blip-chat-webview.js',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

@@ -13,7 +13,7 @@
     <div class="column">
 
       <div class="row">
-        <h1>Meu site maravilhoso</h1>
+        <h1>BlipChat WebView Sandbox</h1>
         <p>Use buttons bellow to see different behaviours of BLiP Chat</p>
         <button class="button" onclick="closeWebview()">Close WebView</button>
         <button class="button" onclick="sendMessage()">Send Default Message</button>        
@@ -64,8 +64,9 @@
         }
 
         sendJson = function () {
-          let json = document.getElementById('textarea').value
-          WebView.sendMessage(JSON.parse(json))
+          let textarea = document.getElementById('textarea')
+          WebView.sendMessage(JSON.parse(textarea.value))
+          textarea.value = ''
         }
 
         preventClose = function () {
