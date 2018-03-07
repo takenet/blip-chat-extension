@@ -6,10 +6,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const cssPlugin = new ExtractTextPlugin('[name].css')
 
 const config = {
-  entry: [`${__dirname}/src/BlipChatWebView.js`],
+  entry: [`${__dirname}/src/BlipChatExtension.js`],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'blip-chat-webview.js',
+    filename: 'blip-chat-extension.js',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },

@@ -1,6 +1,6 @@
 import { PostMessageUtils } from './PostMessageUtils'
 
-export class BlipChatWebView {
+export class BlipChatExtension {
   constructor() {
     this.onClose = () => true
     // Add event to listen to postMessages
