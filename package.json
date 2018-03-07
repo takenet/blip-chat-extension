@@ -1,24 +1,24 @@
 {
-  "name": "blip-chat-widget",
+  "name": "blip-chat-webview",
   "version": "0.0.0-development",
   "description": "",
-  "main": "dist/blip-chat.js",
+  "main": "dist/blip-chat-webview.js",
   "files": [
-    "dist/blip-chat.js"
+    "dist/blip-chat-webview.js"
   ],
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/takenet/blip-chat-widget.git"
+    "url": "https://github.com/takenet/blip-chat-webview.git"
   },
   "bugs": {
-    "url": "https://github.com/takenet/blip-chat-widget/issues"
+    "url": "https://github.com/takenet/blip-chat-webview/issues"
   },
-  "homepage": "https://github.com/takenet/blip-chat-widget#readme",
+  "homepage": "https://github.com/takenet/blip-chat-webview#readme",
   "keywords": [
     "blip",
     "chatbot",
-    "widget",
+    "webview",
     "web"
   ],
   "scripts": {
@@ -32,7 +32,7 @@
     "semantic-release": "semantic-release",
     "travis-deploy-once": "travis-deploy-once"
   },
-  "author": "Samuel Martins",
+  "author": "Victor Balbo",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.18.0",

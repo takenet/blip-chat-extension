@@ -22,7 +22,10 @@ export class BlipChatWebView {
       }
       if (userMessage.preview) {
         content.metadata = {
-          '#blip.payload.content': JSON.stringify(userMessage.preview.content),
+          '#blip.payload.content':
+            typeof userMessage.preview.content === 'string'
+              ? userMessage.preview.content
+              : JSON.stringify(userMessage.preview.content),
           '#blip.payload.type': userMessage.preview.type
         }
       } else {

@@ -5,10 +5,11 @@
 * Project will be running on `http://localhost:3002`
 
 # WebView
-BLiP allows you to open a web page inside BLiPChat. Once that happens you may want to have some control over what happens on the chat from inside the webview. This is possible with this extension script.
+Control BLiP Chat's webview from your web page.
+You may need to have some control over BLiP Chat's webview once you have added it to your web page. This script extension allows you to that.
 
-## Using
-To use the extension script you should import the script as bellow and create a instance of  `BlipChatWebView`:
+## Usage
+To import the script just copy and paste the following code:
 ```js
 <script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
 </script>
@@ -20,28 +21,30 @@ To use the extension script you should import the script as bellow and create a 
     })();
 </script>
 ```
+You should create an instance of  `BlipChatWebView` and operate on it.
 
-## Close the WebView
-Sometimes its needed to close the Webview after an event or a transaction is finished. To close the Webview just call the method `closeWebView` from your object.
+## Closing the WebView
+You may need to close BLiP Chat's webview after an event or transaction has finished. To close the webview use the method `closeWebView` from the instanced object.
 ```js
 var WebView = new BlipChatWebView()
 WebView.closeWebView()
 ```
 
-## Send message to bot
-Maybe after some interacion with the page, you want to update the state where the conversation with the bot stopped. The method `sendMessage` is user to send a message to the bot.
+## Sending a message to the chatbot
+If the chatbot's conversation state has stopped and you need to update that state (after some interaction with your web page, for example) use the method `sendMessage` to send a message to the chatbot.
 ```js
 var WebView = new BlipChatWebView()
 // Sending a simple text message
 WebView.sendMessage("My simple text message")
 ```
 
-If you want to send a complex message, you cand send an object with the properties `payload` and `preview`. They are user to specify what is sent to bot and what is shown to user respectively.
+If you need to send a complex message, you can send an object with the properties `payload` and `preview`. They are used to specify what is sent to chatbot and what is shown to user respectively.
 
-Lets say you want to send your location to bot, but just want to show a simple text like `I'm here` to the user.
+### Examples
+Should you need to send your location to the chatbot but only a simple text like `I'm here` is to be shown to the user, you can do it as follows:
 ```js
 var WebView = new BlipChatWebView()
-// Sending Location card to bot, and showing a text message to user
+// Sending Location card to chatbot and showing a text message to user
 WebView.sendMessage({
   "payload": {
     "content": {
@@ -59,10 +62,10 @@ WebView.sendMessage({
 })
 ```
 
-Now you want to traffic some sensitive content that the user should no see. For that you just have to omit the `preview`.
+Or maybe you have some sensitive content to be trafficked that the user should not see. For that you should send the object keeping the `payload` but omitting the `preview` property.
 ```js
 var WebView = new BlipChatWebView()
-// Sending a message that the user will not see
+// Sending a message to the chatbot that the user will not see it's content
 WebView.sendMessage({
   "payload": {
     "content": "Sensitive content",
@@ -70,29 +73,29 @@ WebView.sendMessage({
   }
 })
 ```
-## Override Webview Close
-Lets say that before the user leave your page you want to garantee a form is submited. For that u can use the method `overrideOnClose`. It takes a parameter that is a function that will be executed when the user tries to close the webview.
+## Override Webview's Close Method
+With the method `overrideOnClose` you can, for example, guarantee that a form is submitted before the user closes the webview. The function to be executed when the user tries to close the webview is passed as a parameter to the method:
 
 ```js
 var WebView = new BlipChatWebView()
 WebView.overrideOnClose(() => {
   alert('Please complete the form before leaving')
-  return false // Prevent the webview to close
+  return false // Prevent webview from closing
 })
 ```
-The return of the function will be use to determine if the webview can be closed or not. Returning `true` would allow it to close and returning `false` would block it.
+The `overrideOnClose` method has a return that determines whether the webview should be closed or not . By returning `true` the webview's closing method will proceed normally and by returning `false` it will be blocked.
 ```js
 var WebView = new BlipChatWebView()
 WebView.overrideOnClose(() => {
   WebView.sendMessage('Webview will close')
-  return true // Webview will close after this method
+  return true // Webview will close
 })
 ```
 
 # Methods
 
 | Methods           | Description                               | Parameters                             |
-| ----------------- | ----------------                          | -------------------------------------- |
+| ----------------- | ----------------------------------------- | -------------------------------------- |
 | closeWebView      | Close the webview                         | None                                   |
 | sendMessage       | Send a message to bot in name of the user | string or { preview: {}, payload: {} } |
-| overrideOnClose   | Override default close function           | function                               |
+| overrideOnClose   | Override webview's default close function | function                               |
