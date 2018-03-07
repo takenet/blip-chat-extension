@@ -18,7 +18,7 @@ after_success:
     api_key:
       secure: cQxoiQLAMt3q7wW46GgSk7ZR/TB5FAVuKxx01cIGasZBMqXTEfQZLE8+jbRdsV0GgnsHn8vG9R6DI4GeVfTSxWu9AuUtamr0O3eNA5UfVwfZ4UBPLvJ9eu4fpBnWGAmUWs+MvN8QnwVQSQxkYBNkBiGNCb7AVinMKPHOYfR4BD3k/i96OUgcrJIgcL2yvkhWXP7pald7YAmAXKfjv2HLDf9nULdAzPy2zjek7+ZiW2j2XRCqhqpl4kFR2xyLXq3+eAh8N+5kbyokleipnY2zzQuAU94wx0NLvOk8AnaF/M8lugedw009VM0AajM0GQQtha8zMGEllMkDTcRy1budvaVKDiWfaccbtaRd7XdkaBb6oOcxzQd9UaYVktMrNREUe3Tjpwl0MnH3+xUu1J6H2rWQkcAVN7U5774KfhpgguFhaHPO7fRhkKinKirmVm6p6M1k2AsynhT0NkvmupzqwvV0KgilU5qsc5iM6nIQZ3B3ePIKMVx6t9CpsyxE+FWxHRl8f1mN6wYQGkYGg3N20K8z/HLBFqCPkGGrIfyGqhxJIFYzZiLpf7zIjCTI3Jrk284DGkUqzRLSVBh+Ukfj62tLGNyT5Uc6C5ZQW2rjoViJ8F2Ygbno6r5lGT65uQ1TgoKcTfpKZ9KjmY6kkYU4iaoue7gWIJH7esff04ZY1UU=
     file: 
-      - dist/blip-chat-extension.js
+      - ./dist/blip-chat-extension.js
     skip_cleanup: true
     on:
       repo: takenet/blip-chat-webview
