@@ -9,9 +9,26 @@ Control BLiP Chat's webview from your web page.
 You may need to have some control over BLiP Chat's webview once you have added it to your web page. This script extension allows you to that.
 
 ## Usage
+### NPM
+Simply install the blip-chat-extension package from the npm registry.
+```
+$ npm install blip-chat-extension
+```
+
+Now you just have to import the package and use it:
+
+```js
+var blipCards = require("blip-chat-extension");
+  (function () {
+    window.onload = function () {
+      var WebView = new BlipChatExtension()
+    }
+  })();
+```
+### Script Import
 To import the script just copy and paste the following code:
 ```js
-<script src="https://unpkg.com/blip-chat-widget" type="text/javascript">
+<script src="https://unpkg.com/blip-chat-extension@1.0.0" type="text/javascript">
 </script>
 <script>
     (function () {
