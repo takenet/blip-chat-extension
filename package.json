@@ -1,10 +1,10 @@
 {
-  "name": "blip-chat-webview",
+  "name": "blip-chat-extension",
   "version": "0.0.0-development",
   "description": "",
-  "main": "dist/blip-chat-webview.js",
+  "main": "dist/blip-chat-extension.js",
   "files": [
-    "dist/blip-chat-webview.js"
+    "dist/blip-chat-extension.js"
   ],
   "private": false,
   "repository": {
