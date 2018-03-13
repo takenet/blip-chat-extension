@@ -64,13 +64,13 @@ var WebView = new BlipChatExtension()
 // Sending Location card to chatbot and showing a text message to user
 WebView.sendMessage({
   "payload": {
+    "type": "application/vnd.lime.location+json",
     "content": {
       "latitude": -19.918899,
       "longitude": -43.959275,
       "altitude": 853,
       "text": "Take's place"
-    },
-    "type": "application/vnd.lime.location+json"
+    }
   },
   "preview": {
     "type": "text/plain",
@@ -85,8 +85,8 @@ var WebView = new BlipChatExtension()
 // Sending a message to the chatbot that the user will not see it's content
 WebView.sendMessage({
   "payload": {
-    "content": "Sensitive content",
     "type": "text/plain"
+    "content": "Sensitive content",
   }
 })
 ```
