@@ -70,14 +70,14 @@
         }
 
         preventClose = function () {
-          WebView.overrideOnClose(() => {
-            alert('N vai fechar')
+          WebView.overrideOnClose(function () {
+            alert('Não vai fechar')
             return false
           })
         }
 
         allowClose = function () {
-          WebView.overrideOnClose(() => {
+          WebView.overrideOnClose(function () {
             return true
           })
         }
