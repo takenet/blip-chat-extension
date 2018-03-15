@@ -79,14 +79,14 @@ WebView.sendMessage({
 })
 ```
 
-Or maybe you have some sensitive content to be trafficked that the user should not see. For that you should send the object keeping the `payload` but omitting the `preview` property.
+Or maybe you have some content to be trafficked that the user should not see. For that you should send the object keeping the `payload` but omitting the `preview` property.
 ```js
 var WebView = new BlipChatExtension()
 // Sending a message to the chatbot that the user will not see it's content
 WebView.sendMessage({
   "payload": {
-    "type": "text/plain"
-    "content": "Sensitive content",
+    "type": "text/plain",
+    "content": "Hidden content"
   }
 })
 ```
