@@ -53,7 +53,25 @@ If the chatbot's conversation state has stopped and you need to update that stat
 var WebView = new BlipChatExtension()
 // Sending a simple text message
 WebView.sendMessage("My simple text message")
+// Sending a media link message 
+WebView.sendMessage({
+  "type": "application/vnd.lime.media-link+json",
+  "content": {
+    "title": "My image message",
+    "text": "Here is a cat image for you!",
+    "type": "image/jpeg",
+    "uri":
+      "http://2.bp.blogspot.com/-pATX0YgNSFs/VP-82AQKcuI/AAAAAAAALSU/Vet9e7Qsjjw/s1600/Cat-hd-wallpapers.jpg",
+    "aspectRatio": "1:1",
+    "size": 227791,
+    "previewUri":
+      "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS8qkelB28RstsNxLi7gbrwCLsBVmobPjb5IrwKJSuqSnGX4IzX",
+    "previewType": "image/jpeg"
+  }
+})
 ```
+
+*You can send any document supported on blip. To see more go to [BLiP Help Center](https://docs.blip.ai/).*
 
 If you need to send a complex message, you can send an object with the properties `payload` and `preview`. They are used to specify what is sent to chatbot and what is shown to user respectively.
 

@@ -16,21 +16,28 @@ export class BlipChatExtension {
   sendMessage(userMessage) {
     let content
     if (typeof userMessage === 'object') {
-      content = {
-        content: userMessage.payload.content,
-        type: userMessage.payload.type
-      }
-      if (userMessage.preview) {
-        content.metadata = {
-          '#blip.payload.content':
-            typeof userMessage.preview.content === 'string'
-              ? userMessage.preview.content
-              : JSON.stringify(userMessage.preview.content),
-          '#blip.payload.type': userMessage.preview.type
+      if (!userMessage.payload) { // Lime document
+        content = {
+          content: userMessage.content,
+          type: userMessage.type
         }
-      } else {
-        content.metadata = {
-          '#blip.hiddenMessage': true
+      } else { // { payload:, preview: } document
+        content = {
+          content: userMessage.payload.content,
+          type: userMessage.payload.type
+        }
+        if (userMessage.preview) {
+          content.metadata = {
+            '#blip.payload.content':
+              typeof userMessage.preview.content === 'string'
+                ? userMessage.preview.content
+                : JSON.stringify(userMessage.preview.content),
+            '#blip.payload.type': userMessage.preview.type
+          }
+        } else {
+          content.metadata = {
+            '#blip.hiddenMessage': true
+          }
         }
       }
     } else {
