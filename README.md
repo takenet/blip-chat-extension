@@ -113,7 +113,7 @@ With the method `overrideOnClose` you can, for example, guarantee that a form is
 
 ```js
 var WebView = new BlipChatExtension()
-WebView.overrideOnClose(() => {
+WebView.overrideOnClose(function () {
   alert('Please complete the form before leaving')
   return false // Prevent webview from closing
 })
@@ -121,7 +121,7 @@ WebView.overrideOnClose(() => {
 The `overrideOnClose` method has a return that determines whether the webview should be closed or not . By returning `true` the webview's closing method will proceed normally and by returning `false` it will be blocked.
 ```js
 var WebView = new BlipChatExtension()
-WebView.overrideOnClose(() => {
+WebView.overrideOnClose(function () {
   WebView.sendMessage('Webview will close')
   return true // Webview will close
 })
