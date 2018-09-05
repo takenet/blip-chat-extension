@@ -28,7 +28,7 @@ var blipCards = require("blip-chat-extension");
 ### Script Import
 To import the script just copy and paste the following code:
 ```js
-<script src="https://unpkg.com/blip-chat-extension@1.0.0" type="text/javascript">
+<script src="https://unpkg.com/blip-chat-extension@1.0.4" type="text/javascript">
 </script>
 <script>
     (function () {
